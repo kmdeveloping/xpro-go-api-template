@@ -1,0 +1,25 @@
+name: Docker Image CI
+
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile_Unit_Tests --tag km-go-template:$(date +%s)
+    - name: Run unit test in the image
+      run: docker run km-go-template:$(date +%s) sh -c "make unit-tes"
+  
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build Production Image
+      run: make docker-production
