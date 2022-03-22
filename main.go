@@ -6,5 +6,5 @@ import(
 
 func main() {
 
-  fmt.PrintF("_")
+  log.Printf("_")
 }
