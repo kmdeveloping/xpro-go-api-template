@@ -1,10 +1,15 @@
 package main
 
-import(
-  "fmt"
+import (
+    "fmt"
 )
+  
 
 func main() {
-
-  log.Printf("_")
+  
+    // Declaring some const variables
+    const name, dept = "GeeksforGeeks", "CS"
+  
+    // Calling Println() function
+    fmt.Println(name, "is", "a", dept, "Portal.")
 }
